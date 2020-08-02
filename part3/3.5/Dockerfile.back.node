@@ -1,0 +1,8 @@
+FROM node
+WORKDIR /backend
+COPY . /backend
+RUN npm install
+EXPOSE 8000
+USER app
+ENV FRONT_URL="http://localhost:5000"
+CMD ["npm", "start"]

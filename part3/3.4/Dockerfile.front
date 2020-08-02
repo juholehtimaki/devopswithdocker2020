@@ -1,0 +1,9 @@
+FROM node:12.16.1-alpine3.9
+WORKDIR /app
+COPY . /app
+RUN npm install
+RUN addgroup -S app && adduser -S -G app app
+EXPOSE 5000
+USER app
+ENV API_URL=http://localhost:8000
+CMD ["npm", "start"]

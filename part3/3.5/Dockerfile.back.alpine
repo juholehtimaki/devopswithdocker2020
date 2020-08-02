@@ -1,0 +1,9 @@
+FROM node:12.16.1-alpine3.9
+WORKDIR /backend
+COPY . /backend
+RUN npm install
+RUN addgroup -S app && adduser -S -G app app
+EXPOSE 8000
+USER app
+ENV FRONT_URL="http://localhost:5000"
+CMD ["npm", "start"]
